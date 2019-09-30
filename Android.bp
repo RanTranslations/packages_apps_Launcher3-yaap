@@ -113,6 +113,11 @@ filegroup {
     ],
 }
 
+filegroup {
+    name: "launcher-src_base",
+    srcs: [ "src_base/**/*.java", "src_base/**/*.kt" ],
+}
+
 // Proguard files for Launcher3
 filegroup {
     name: "launcher-proguard-rules",
@@ -356,6 +361,7 @@ android_app {
     srcs: [
         ":launcher-src",
         ":launcher-src_no_quickstep",
+        ":launcher-src_base",
         ":launcher-build-config",
     ],
 
