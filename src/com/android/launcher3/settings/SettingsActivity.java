@@ -51,6 +51,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.launcher3.BuildConfig;
 import com.android.launcher3.Flags;
+import com.android.launcher3.LauncherAppState;
 import com.android.launcher3.LauncherFiles;
 import com.android.launcher3.R;
 import com.android.launcher3.states.RotationHelper;
@@ -359,6 +360,12 @@ public class SettingsActivity extends FragmentActivity
             if (activity != null) {
                 activity.recreate();
             }
+        }
+
+        @Override
+        public void onDestroy() {
+            super.onDestroy();
+            LauncherAppState.getInstanceNoCreate().checkIfRestartNeeded();
         }
 
         private PreferenceHighlighter createHighlighter() {
